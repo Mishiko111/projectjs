@@ -76,3 +76,17 @@ body {
   gap: 20px;
   justify-content: flex-start;
 }
+.cart-icon {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+
+  padding: 10px 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}

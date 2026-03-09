@@ -1,53 +1,45 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1 class="title">Categories</h1>
 
-<h1 class="title">Categories</h1>
+    <div id="categories" class="categories"></div>
+    <a href="cart.html" class="cart-icon"
+      ><i class="fa-solid fa-cart-arrow-down"></i
+    ></a>
+    <div class="container">
+      <div class="filter">
+        <h3>Filter</h3>
 
-<div id="categories" class="categories"></div>
+        <label>Spiciness</label>
+        <input type="range" id="spice" min="0" max="3" />
 
-<div class="container">
+        <label>
+          <input type="checkbox" id="nuts" />
+          No Nuts
+        </label>
 
-<div class="filter">
+        <label>
+          <input type="checkbox" id="veg" />
+          Vegetarian Only
+        </label>
 
-<h3>Filter</h3>
+        <button onclick="applyFilter()">Apply Filter</button>
+      </div>
 
-<label>Spiciness</label>
-<input type="range" id="spice" min="0" max="3">
+      <div id="menu" class="menu"></div>
+    </div>
 
-
-
-<label>
-<input type="checkbox" id="nuts">
-No Nuts
-</label>
-
-
-
-<label>
-<input type="checkbox" id="veg">
-Vegetarian Only
-</label>
-
-
-
-<button onclick="applyFilter()">Apply Filter</button>
-
-</div>
-
-<div id="menu" class="menu"></div>
-
-</div>
-
-<script src="app.js"></script>
-
-
-</body>
+    <script src="app.js"></script>
+  </body>
 </html>
