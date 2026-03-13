@@ -26,7 +26,7 @@ body {
 .cartbtn {
   padding: 10px 20px;
   border: none;
-  background: #eee;
+  background: #fbfbfb;
   cursor: pointer;
 }
 
@@ -37,15 +37,16 @@ body {
 
 .container {
   display: flex;
-  gap: 30px;
+  gap: 20px;
   padding: 20px;
 }
 
-.filter {
+.filter { 
   width: 220px;
   background: white;
-  padding: 20px;
+  padding: 25px;
   border-radius: 10px;
+  
 }
 
 .menu {

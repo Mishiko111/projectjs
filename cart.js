@@ -49,6 +49,9 @@ function displayCart(cartArray) {
             <span>${item.product.name}</span>
             <span>${item.price}</span>
             <span>Qty: ${item.quantity}</span>
+            
+            <button onclick="removeFromCart(${item.product.id})">Remove</button>
+            <button onclick="increase(${item.quantity}, ${item.price} )">+</button>
         `;
 
     cart.appendChild(div);
@@ -61,8 +64,24 @@ function displayCart(cartArray) {
   document.querySelector("#cart-count").innerText = count;
 }
 
-function removeFromCart(productId, element) {
+
+function increase(quantity,price,productid){
+  fetch(`https://restaurant.stepprojects.ge/api/Baskets/UpdateBasket`,{
+    method : "PUT",
+      headers: { "Content-Type": "application/json" },
+  },
+
+
+  )
+
+}
+
+
+
+function removeFromCart(productId) {
   fetch(
+    
+
     `https://restaurant.stepprojects.ge/api/Baskets/DeleteProduct/${productId}`,
     {
       method: "DELETE", // API ხშირად POST-ს იყენებს
@@ -79,14 +98,12 @@ function removeFromCart(productId, element) {
         .then((res) => res.json())
         .then(displayCart);
     });
-}
-div.innerHTML = `
-    <span>${item.product.name}</span>
-    <span>$${item.price}</span>
-    <span>Qty: ${item.quantity}</span>
-    <button class="remove-btn">Remove</button>
-`;
 
-div.querySelector(".remove-btn").addEventListener("click", () => {
-  removeFromCart(item.product.id, div);
-});
+window.location.href = "cart.html"
+
+}
+
+
+
+
+
