@@ -6,7 +6,12 @@
   border-radius: 10px;
   height: fit-content;
 } */
-
+#cart-items{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
 .cart-item {
   width: 300px;
   display: flex;
@@ -31,7 +36,7 @@ a {
 }
 
 .cart {
-  
+
   flex-wrap: wrap;
   top: 0;
 

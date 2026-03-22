@@ -5,12 +5,15 @@ body {
 }
 
 .categories {
+  flex-wrap: wrap;
   display: flex;
   justify-content: center;
   gap: 15px;
   padding: 20px;
 }
-
+h1{
+  margin-left: 20px;
+}
 .categories button {
   padding: 10px 20px;
   border: none;
@@ -36,13 +39,13 @@ body {
 }
 
 .container {
+  flex-wrap: wrap;
   display: flex;
   gap: 20px;
   padding: 20px;
 }
 
 .filter { 
-  width: 220px;
   background: white;
   padding: 25px;
   border-radius: 10px;
@@ -75,7 +78,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  justify-content: flex-start;
+justify-content: center;
 }
 .cart-icon {
   position: fixed;

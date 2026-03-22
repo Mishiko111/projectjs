@@ -3,7 +3,6 @@ fetch("https://restaurant.stepprojects.ge/api/Baskets/GetAll")
   .then((data) => {
     console.log(data);
     displayCart(data);
-
   });
 
 function displayCart(cartArray) {
@@ -34,6 +33,7 @@ function displayCart(cartArray) {
 }
 
 function displayCart(cartArray) {
+  console.log(cartArray);
   let cart = document.querySelector("#cart-items");
   cart.innerHTML = ""; // clear previous items
 
@@ -51,7 +51,8 @@ function displayCart(cartArray) {
             <span>Qty: ${item.quantity}</span>
             
             <button onclick="removeFromCart(${item.product.id})">Remove</button>
-            <button onclick="increase(${item.quantity}, ${item.price} )">+</button>
+            <button onclick="increase(${item.quantity}, ${item.price}, ${item.product.id})">+</button>
+             <button onclick="decrease(${item.quantity}, ${item.price}, ${item.product.id})">-</button>
         `;
 
     cart.appendChild(div);
@@ -61,27 +62,47 @@ function displayCart(cartArray) {
   });
 
   document.querySelector("#total").innerText = total;
-  document.querySelector("#cart-count").innerText = count;
+  // document.querySelector("#cart-count").innerText = count;
 }
 
+function increase(quantity, price, productid) {
+  fetch(`https://restaurant.stepprojects.ge/api/Baskets/UpdateBasket`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      quantity: quantity + 1,
+      price: price,
+      productId: productid,
+    }),
+  })
+    .then((resp) => resp.json())
+    .then((data) => {
+      console.log(data);
+    });
 
-function increase(quantity,price,productid){
-  fetch(`https://restaurant.stepprojects.ge/api/Baskets/UpdateBasket`,{
-    method : "PUT",
-      headers: { "Content-Type": "application/json" },
-  },
-
-
-  )
-
+  window.location.reload();
 }
 
+function decrease(quantity, price, productid) {
+  fetch(`https://restaurant.stepprojects.ge/api/Baskets/UpdateBasket`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      quantity: quantity - 1,
+      price: price,
+      productId: productid,
+    }),
+  })
+    .then((resp) => resp.json())
+    .then((data) => {
+      console.log(data);
+    });
 
+  window.location.reload();
+}
 
 function removeFromCart(productId) {
   fetch(
-    
-
     `https://restaurant.stepprojects.ge/api/Baskets/DeleteProduct/${productId}`,
     {
       method: "DELETE", // API ხშირად POST-ს იყენებს
@@ -99,11 +120,5 @@ function removeFromCart(productId) {
         .then(displayCart);
     });
 
-window.location.href = "cart.html"
-
+  window.location.href = "cart.html";
 }
-
-
-
-
-
